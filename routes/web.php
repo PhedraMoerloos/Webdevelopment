@@ -13,14 +13,9 @@
 
 Route::get('/', function () {
 
-    $tasks = [
+    $competitions = DB::table('competitions')->get();
 
-      'Yuppie',
-      'Play and win a free goldfish and aquarium!'
-
-    ];
-
-    return view('welcome', compact('tasks'));
+    return view('welcome', compact('competitions'));
 });
 
 

@@ -84,13 +84,17 @@
 
                 <p>Play and win a free goldfish with aquarium!</p>-->
 
-                @foreach ($tasks as $task)
+                @foreach ($competitions as $competition)
 
-                  <p>{{ $task }}</p>
+                  <div class="title m-b-md">{{ $competition->title }}</div>
+                  <img src="{{ $competition->photo_url }}" width= "400">
+                  <p>{{ $competition->description }}</p>
+                  <p>{{ $competition->competition_manager_name }}</p>
+                  <p>{{ $competition->competition_manager_email}}</p>
 
                 @endforeach
 
-                <img src="http://hello.int/img/goldfish.jpg" width= "400">
+                <!--<img src="http://hello.int/img/goldfish.jpg" width= "400">-->
 
                 <div class="links">
                     <a href="https://laravel.com/docs">Documentation</a>
