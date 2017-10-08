@@ -19,6 +19,53 @@ Route::get('/', function () {
 });
 
 
+Route::get('/decide-winner', function () {
+
+
+    //stap 1 --> CheckPeriod() --> now() vergelijken met datums periodes, alle periodes DB doorlopen en zien of now() >= startdate en now() <= enddate is --> $period = bv 2 (period.period_nummer)
+    //normaal $period = 2 door die methode bepaald
+    $period = DB::table('periods')->where([
+
+        ['startdate', '<=', '2017-10-24 11:57:27'],
+        ['enddate', '>=', '2017-10-24 11:57:27']
+
+    ])->get();
+
+
+
+
+    /*$period = 1;
+
+    //zo werkt al, mag dit natuurlijk wel maar 1 keer doen aan het einde van de periode..
+    $random_participants_answered_correctly = DB::table('participants')->where([
+
+        ['period_id', $period],
+        ['answered_correctly', '1']
+
+    ])->inRandomOrder()->get();
+
+
+    //$id_winner = $random_participants_answered_correctly->first()->id;
+
+    //nu nog doorvoeren naar db
+    /*$winner = Participant::findorFail( $id );
+    $winner->update(['is_winner'=> 1]);*/
+
+    //zo werkt al, mag dit natuurlijk wel maar 1 keer doen aan het einde van de periode..
+    /*DB::table('participants')
+            ->where('id', $id_winner)
+            ->update(['is_winner' => 1]);*/
+
+
+
+
+    return $period;
+
+
+
+});
+
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 });
