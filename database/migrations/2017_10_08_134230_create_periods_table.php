@@ -21,8 +21,6 @@ class CreatePeriodsTable extends Migration
             $table->string('question');
             $table->string('answer');
             $table->integer('competition_id');
-
-
             $table->timestamps();
         });
     }

@@ -78,17 +78,12 @@
             @endif
 
             <div class="content">
-                <!--<div class="title m-b-md">
-                    Competition Yuppie!
-                </div>
-
-                <p>Play and win a free goldfish with aquarium!</p>-->
 
                 @foreach ($competitions as $competition)
 
                   <div class="title m-b-md">{{ $competition->title }}</div>
                   <img src="{{ $competition->photo_url }}" width= "400">
-                  <p>{{ $competition->description }}</p>
+                  <h4>{{ $competition->description }}</h4>
                   <p>{{ $competition->competition_manager_name }}</p>
                   <p>{{ $competition->competition_manager_email}}</p>
 
