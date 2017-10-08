@@ -78,9 +78,19 @@
             @endif
 
             <div class="content">
-                <div class="title m-b-md">
-                    Laravel
+                <!--<div class="title m-b-md">
+                    Competition Yuppie!
                 </div>
+
+                <p>Play and win a free goldfish with aquarium!</p>-->
+
+                @foreach ($tasks as $task)
+
+                  <p>{{ $task }}</p>
+
+                @endforeach
+
+                <img src="http://hello.int/img/goldfish.jpg" width= "400">
 
                 <div class="links">
                     <a href="https://laravel.com/docs">Documentation</a>
