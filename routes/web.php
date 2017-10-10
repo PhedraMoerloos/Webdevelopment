@@ -13,57 +13,86 @@
 
 Route::get('/', function () {
 
-    $competitions = DB::table('competitions')->get();
+    //info wedstrijd
+    $competition = DB::table('competitions')->find(1); //normaal find bepaalde $id maar hier weten we dat er maar 1 wedstrijd is dus dat we gwn die moeten hebben
 
-    return view('welcome', compact('competitions'));
+
+    //toon winnaars (als er al zijn)
+    $winners = DB::table('participants')->where('is_winner', 1)->get();
+
+
+    //bepaal periode
+    $period_number = DB::table('periods')->where([
+
+        ['startdate', '<=', NOW()],
+        ['enddate', '>=', NOW()]
+
+    ])->first()->period_number;
+
+
+    //toon juiste vraag afh van periode nu
+    $period_now = DB::table('periods')->where('period_number', $period_number)->find(1); //er gaat er maar 1 inzitten, moeten die gwn hebben
+    
+
+
+    return view('welcome', compact('competition', 'period_now', 'winners'));
 });
+
+
 
 
 Route::get('/decide-winner', function () {
 
 
-    //stap 1 --> CheckPeriod() --> now() vergelijken met datums periodes, alle periodes DB doorlopen en zien of now() >= startdate en now() <= enddate is --> $period = bv 2 (period.period_nummer)
-    //normaal $period = 2 door die methode bepaald
-    $period = DB::table('periods')->where([
+    //periode bepalen --> met datum nu vergelijken
+    /*$period = DB::table('periods')->where([
 
-        ['startdate', '<=', '2017-10-24 11:57:27'],
-        ['enddate', '>=', '2017-10-24 11:57:27']
+        ['startdate', '<=', NOW()],
+        ['enddate', '>=', NOW()]
 
-    ])->get();
-
+    ])->first()->period_number;*/
 
 
-
-    /*$period = 1;
+    $period = 2;
 
     //zo werkt al, mag dit natuurlijk wel maar 1 keer doen aan het einde van de periode..
-    $random_participants_answered_correctly = DB::table('participants')->where([
+    // als periode 2 nu is, op einddatum om 12u 's nachts --> bepalen winnaar, wanneer die functie uitvoeren? cron?
+
+    //id winaar bepalen --> participants uit de periode die we willen
+    $id_winner = DB::table('participants')->where([
 
         ['period_id', $period],
         ['answered_correctly', '1']
 
-    ])->inRandomOrder()->get();
+    ])->inRandomOrder()->first()->id;
 
 
-    //$id_winner = $random_participants_answered_correctly->first()->id;
+
 
     //nu nog doorvoeren naar db
     /*$winner = Participant::findorFail( $id );
     $winner->update(['is_winner'=> 1]);*/
 
-    //zo werkt al, mag dit natuurlijk wel maar 1 keer doen aan het einde van de periode..
-    /*DB::table('participants')
+
+    DB::table('participants')
             ->where('id', $id_winner)
-            ->update(['is_winner' => 1]);*/
+            ->update(['is_winner' => 1]);
 
 
 
 
-    return $period;
+    return $id_winner;
 
 
 
 });
+
+
+
+
+
+
+
 
 
 Route::get('/dashboard', function () {

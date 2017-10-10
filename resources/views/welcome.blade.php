@@ -79,7 +79,6 @@
 
             <div class="content">
 
-                @foreach ($competitions as $competition)
 
                   <div class="title m-b-md">{{ $competition->title }}</div>
                   <img src="{{ $competition->photo_url }}" width= "400">
@@ -87,7 +86,32 @@
                   <p>{{ $competition->competition_manager_name }}</p>
                   <p>{{ $competition->competition_manager_email}}</p>
 
-                @endforeach
+
+
+                  @if(count($winners) >= 1)
+
+
+                    <h4>Winners of previous periods:</h4>
+                    @foreach ($winners as $winner)
+
+                      <ul>
+                        <li>{{ $winner->firstname}} {{ $winner->lastname }}</li>
+                      </ul>
+
+                    @endforeach
+
+
+                  @endif
+
+
+
+
+                  <p>{{ $period_now->question }}</p>
+
+
+
+
+
 
                 <!--<img src="http://hello.int/img/goldfish.jpg" width= "400">-->
 
