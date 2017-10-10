@@ -20,11 +20,9 @@ use App\Participant;
 Route::get('/', function () {
 
     //info wedstrijd
-    //$competition = DB::table('competitions')->find(1); //normaal find bepaalde $id maar hier weten we dat er maar 1 wedstrijd is dus dat we gwn die moeten hebben
     $competition = Competition::first();
 
     //toon winnaars (als er al zijn)
-    //$winners = DB::table('participants')->where('is_winner', 1)->get();
     $winners = Participant::where('is_winner', 1)->get();
 
 
@@ -34,7 +32,6 @@ Route::get('/', function () {
 
 
     //toon juiste vraag afh van periode nu --> in periode 2 object bv
-    //$period_now = DB::table('periods')->where('period_number', $period_number)->find(1); //er gaat er maar 1 inzitten, moeten die gwn hebben
     $period_now = Period::where('period_number', $period_number)->first();
 
 
