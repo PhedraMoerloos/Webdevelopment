@@ -12,8 +12,8 @@ class Period extends Model
     //(bv geef me alle participants uit periode 1 in deze functie, App\Period::Participant_period(1)->where('firstname', 'Phedra')->get();  )
     public static function Determine_period()
     {
-
-        $period_now = Period::where([
+                  //= Period::
+        $period_now = static::where([
 
             ['startdate', '<=', NOW()],
             ['enddate', '>=', NOW()]

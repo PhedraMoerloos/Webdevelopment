@@ -27,8 +27,6 @@ Route::get('/', function () {
 
 
     //bepaal periode (nummer) op dit moment
-    //hebben functie in Model Period aangemaakt, later nog zien hoe hier uitvoeren
-    //$period_number = 1;
     $period_number = Period::Determine_period();
 
     //toon juiste vraag afh van periode nu --> in periode 2 object bv
@@ -44,37 +42,18 @@ Route::get('/', function () {
 Route::get('/decide-winner', function () {
 
 
-
-
-    $period = 1;
-
     //zo werkt al, mag dit natuurlijk wel maar 1 keer doen aan het einde van de periode..
     // als periode 2 nu is, op einddatum om 12u 's nachts --> bepalen winnaar, wanneer die functie uitvoeren? cron?
 
-    //id winaar bepalen --> participants uit de periode die we willen
-    $id_winner = Participant::where([
+    $period_number = Period::Determine_period();
 
-        ['period_id', $period],
-        ['answered_correctly', '1']
+    $id_winner = Participant::Determine_winner($period_number);
 
-    ])->inRandomOrder()->first()->id;
-
-
-
-
-    //op deze manier geeft MassAssignment error
-    /*$winner = Participant::findorFail( $id );
-    $winner->update(['is_winner'=> 1]);*/
-
-
-    Participant::where('id', $id_winner)->update(['is_winner' => 1]);
-
+    Participant::Create_winner($id_winner);
 
 
 
     return $id_winner;
-
-
 
 });
 
