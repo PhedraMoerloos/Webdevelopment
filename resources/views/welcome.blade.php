@@ -106,7 +106,7 @@
 
 
 
-                  <p>{{ $period_now->question }}</p>
+                  <p>{{ $period_object->question }}</p>
 
 
 

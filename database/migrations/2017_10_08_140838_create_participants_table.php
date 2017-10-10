@@ -22,7 +22,7 @@ class CreateParticipantsTable extends Migration
             $table->integer('zipcode');
             $table->string('ipaddress');
             $table->boolean('answered_correctly');
-            $table->boolean('is_winner');
+            $table->boolean('is_winner')->default(false);
             $table->integer('competition_id');
             $table->integer('period_id');
             $table->timestamps();

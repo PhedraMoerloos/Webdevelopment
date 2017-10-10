@@ -28,14 +28,14 @@ Route::get('/', function () {
 
     //bepaal periode (nummer) op dit moment
     //hebben functie in Model Period aangemaakt, later nog zien hoe hier uitvoeren
-    $period_number = 1;
-
+    //$period_number = 1;
+    $period_number = Period::Determine_period();
 
     //toon juiste vraag afh van periode nu --> in periode 2 object bv
-    $period_now = Period::where('period_number', $period_number)->first();
+    $period_object = Period::where('period_number', $period_number)->first();
 
 
-    return view('welcome', compact('competition', 'period_now', 'winners'));
+    return view('welcome', compact('competition', 'period_object', 'winners'));
 });
 
 
@@ -44,22 +44,15 @@ Route::get('/', function () {
 Route::get('/decide-winner', function () {
 
 
-    //periode bepalen --> met datum nu vergelijken
-    /*$period = DB::table('periods')->where([
-
-        ['startdate', '<=', NOW()],
-        ['enddate', '>=', NOW()]
-
-    ])->first()->period_number;*/
 
 
-    $period = 2;
+    $period = 1;
 
     //zo werkt al, mag dit natuurlijk wel maar 1 keer doen aan het einde van de periode..
     // als periode 2 nu is, op einddatum om 12u 's nachts --> bepalen winnaar, wanneer die functie uitvoeren? cron?
 
     //id winaar bepalen --> participants uit de periode die we willen
-    $id_winner = DB::table('participants')->where([
+    $id_winner = Participant::where([
 
         ['period_id', $period],
         ['answered_correctly', '1']
@@ -69,14 +62,12 @@ Route::get('/decide-winner', function () {
 
 
 
-    //nu nog doorvoeren naar db
+    //op deze manier geeft MassAssignment error
     /*$winner = Participant::findorFail( $id );
     $winner->update(['is_winner'=> 1]);*/
 
 
-    DB::table('participants')
-            ->where('id', $id_winner)
-            ->update(['is_winner' => 1]);
+    Participant::where('id', $id_winner)->update(['is_winner' => 1]);
 
 
 
