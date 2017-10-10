@@ -11,28 +11,31 @@
 |
 */
 
+use App\Competition;
+use App\Period;
+use App\Participant;
+
+
+
 Route::get('/', function () {
 
     //info wedstrijd
-    $competition = DB::table('competitions')->find(1); //normaal find bepaalde $id maar hier weten we dat er maar 1 wedstrijd is dus dat we gwn die moeten hebben
-
+    //$competition = DB::table('competitions')->find(1); //normaal find bepaalde $id maar hier weten we dat er maar 1 wedstrijd is dus dat we gwn die moeten hebben
+    $competition = Competition::first();
 
     //toon winnaars (als er al zijn)
-    $winners = DB::table('participants')->where('is_winner', 1)->get();
+    //$winners = DB::table('participants')->where('is_winner', 1)->get();
+    $winners = Participant::where('is_winner', 1)->get();
 
 
-    //bepaal periode
-    $period_number = DB::table('periods')->where([
-
-        ['startdate', '<=', NOW()],
-        ['enddate', '>=', NOW()]
-
-    ])->first()->period_number;
+    //bepaal periode (nummer) op dit moment
+    //hebben functie in Model Period aangemaakt, later nog zien hoe hier uitvoeren
+    $period_number = 1;
 
 
-    //toon juiste vraag afh van periode nu
-    $period_now = DB::table('periods')->where('period_number', $period_number)->find(1); //er gaat er maar 1 inzitten, moeten die gwn hebben
-    
+    //toon juiste vraag afh van periode nu --> in periode 2 object bv
+    //$period_now = DB::table('periods')->where('period_number', $period_number)->find(1); //er gaat er maar 1 inzitten, moeten die gwn hebben
+    $period_now = Period::where('period_number', $period_number)->first();
 
 
     return view('welcome', compact('competition', 'period_now', 'winners'));
