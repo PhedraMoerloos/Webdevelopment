@@ -35,7 +35,7 @@ class ParticipantsController extends Controller
 
 
       $answered_correctly;
-      if (request('answer') == $period_answer) {
+      if ( strcasecmp( request('answer'), $period_answer )  == 0 ) {
         $answered_correctly = true;
       }
 

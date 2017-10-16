@@ -8,6 +8,12 @@ class Participant extends Model
 {
 
 
+    //deze mogen niet geMass assigned worden
+    protected $quarded = ['period_id', 'answered_correctly'];
+
+
+
+
     public static function Determine_winner($period)
     {
                //= Participant::
