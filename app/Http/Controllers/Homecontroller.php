@@ -9,7 +9,7 @@ use App\Period;
 use App\Participant;
 
 
-class Homecontroller extends Controller
+class HomeController extends Controller
 {
 
 

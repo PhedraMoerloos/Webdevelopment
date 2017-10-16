@@ -15,7 +15,9 @@ use App\Competition;
 use App\Period;
 use App\Participant;
 
-Route::get('/', 'Homecontroller@index');
+Route::get('/', 'HomeController@index');
+
+Route::post('/', 'ParticipantsController@store');
 
 
 
