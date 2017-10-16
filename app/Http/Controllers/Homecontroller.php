@@ -30,7 +30,7 @@ class Homecontroller extends Controller
         $period_object = Period::where('period_number', $period_number)->first();
 
 
-        return view('welcome', compact('competition', 'period_object', 'winners'));
+        return view('index', compact('competition', 'period_object', 'winners'));
 
     }
 

@@ -49,7 +49,7 @@ Route::get('/decide-winner', function () {
 
 
 Route::get('/dashboard', function () {
-    return view('dashboard');
+    return view('dashboard.dashboard');
 });
 
 Route::get('/login', function () {
