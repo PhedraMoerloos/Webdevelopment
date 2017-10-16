@@ -18,11 +18,24 @@ class Period extends Model
             ['startdate', '<=', NOW()],
             ['enddate', '>=', NOW()]
 
-        ])->first()->period_number;
+        ])->first()->id;
 
         return $period_now;
 
     }
+
+
+    public static function getPeriodAnswer($period_id)
+    {
+                  //= Period::
+        $periodAnswer = static::where('id', $period_id)->first()->answer;
+
+        return $periodAnswer;
+
+    }
+
+
+
 
 
 

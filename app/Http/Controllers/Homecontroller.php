@@ -24,10 +24,10 @@ class HomeController extends Controller
 
 
         //bepaal periode (nummer) op dit moment
-        $period_number = Period::Determine_period();
+        $period_id = Period::Determine_period();
 
         //toon juiste vraag afh van periode nu --> in periode 2 object bv
-        $period_object = Period::where('period_number', $period_number)->first();
+        $period_object = Period::where('id', $period_id)->first();
 
 
         return view('index', compact('competition', 'period_object', 'winners'));
