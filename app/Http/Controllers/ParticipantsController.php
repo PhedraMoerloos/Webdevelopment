@@ -48,6 +48,19 @@ class ParticipantsController extends Controller
       $participant->answered_correctly = $answered_correctly;
 
 
+
+
+      $this->validate(request(), [
+
+          'firstname'   =>    'required|string|min:2|max:40',
+          'lastname'    =>    'required|string|min:2|max:40',
+          'address'     =>    'required|string|min:4',
+          'city'        =>    'required|string|min:2',
+          'zipcode'     =>    'required|integer',
+          'answer'      =>    'required|string|min:2'
+
+      ]);
+
       $participant->save();
 
       return redirect('/');
