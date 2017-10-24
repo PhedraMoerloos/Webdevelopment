@@ -25,6 +25,8 @@ class Period extends Model
     }
 
 
+
+
     public static function getPeriodAnswer($period_id)
     {
                   //= Period::
@@ -37,8 +39,24 @@ class Period extends Model
 
 
 
+    public function competition()
+    {
+
+      //period belongs to 1 competition
+      return $this->belongsTo(Competition::class);
+
+    }
 
 
+
+
+    public function participants()
+    {
+
+      //period has multiple participants
+      return $this->hasMany(Participant::class);
+
+    }
 
 
 

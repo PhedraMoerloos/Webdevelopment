@@ -43,4 +43,26 @@ class Participant extends Model
     }
 
 
+
+
+
+    public function competition()
+    {
+
+      //participant belongs to 1 competition
+      return $this->belongsTo(Competition::class);
+
+    }
+
+
+
+    public function period()
+    {
+
+      //participant belongs to 1 period
+      return $this->belongsTo(Period::class);
+
+    }
+
+
 }
