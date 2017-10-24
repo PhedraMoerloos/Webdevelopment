@@ -14,7 +14,10 @@ class AdminController extends Controller
 
       $competition = Competition::first();
 
-      return view('dashboard.dashboard', compact('competition'));
+
+      $periods = $competition->periods;
+
+      return view('dashboard.dashboard', compact('competition', 'periods'));
 
     }
 

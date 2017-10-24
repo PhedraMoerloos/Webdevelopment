@@ -20,6 +20,24 @@
         </div>
 
 
+
+        <h3>Change period dates:</h3>
+
+        @foreach ($periods as $period)
+
+        <div class="form-group">
+            <label for="startDateP{{ $period->period_number }}">Startdate Period {{ $period->period_number }}:</label>
+            <input type="date" class="form-control" id="startDateP{{ $period->period_number }}" name= "startDateP{{ $period->period_number }}" value="{{ $period->startdate }}" required>
+        </div>
+
+        <div class="form-group">
+            <label for="endDateP{{ $period->period_number }}">Enddate Period {{ $period->period_number }}:</label>
+            <input type="date" class="form-control" id="endDateP{{ $period->period_number }}" name= "endDateP{{ $period->period_number }}" value="{{ $period->enddate }}" required>
+        </div>
+
+        @endforeach
+
+
         <div class="form-group">
             <button type="submit" class="btn btn-default">Edit</button>
         </div>
