@@ -7,6 +7,18 @@ use Illuminate\Database\Eloquent\Model;
 class Competition extends Model
 {
 
+
+  public static function Edit_CompManagerEmail( $request )
+  {
+              
+      static::where('id', 1)->update(['competition_manager_email' => $request]);
+
+      return true;
+
+  }
+
+
+
   public function periods()
   {
 

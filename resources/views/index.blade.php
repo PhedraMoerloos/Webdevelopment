@@ -9,7 +9,7 @@
     <img src="{{ $competition->photo_url }}" width= "400">
     <h4>{{ $competition->description }}</h4>
     <p>{{ $competition->competition_manager_name }}</p>
-    <p>{{ $competition->competition_manager_email}}</p>
+    <p>{{ $competition->competition_manager_email }}</p>
 
 
 

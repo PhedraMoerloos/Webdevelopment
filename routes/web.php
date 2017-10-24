@@ -20,6 +20,11 @@ Route::get('/', 'HomeController@index');
 Route::post('/', 'ParticipantsController@store');
 
 
+Route::get('/dashboard', 'AdminController@index');
+
+Route::patch('/dashboard', 'AdminController@edit');
+
+
 
 
 
@@ -50,9 +55,9 @@ Route::get('/decide-winner', function () {
 
 
 
-Route::get('/dashboard', function () {
-    return view('dashboard.dashboard');
-});
+
+
+
 
 Route::get('/login', function () {
     return "This is where the admin logs in, if OK --> goes to dashboard";
