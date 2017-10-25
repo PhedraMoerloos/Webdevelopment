@@ -8,7 +8,7 @@
     <h1>Admin Dashboard:</h1>
 
 
-    <form method="post" action="/hello.int/public/dashboard">
+    <form method="post" action="{{ route('dashboard') }}">
 
         {{ method_field('PATCH') }}
 

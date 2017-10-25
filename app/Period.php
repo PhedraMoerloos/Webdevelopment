@@ -38,6 +38,27 @@ class Period extends Model
 
 
 
+    public static function Edit_PeriodStartDate( $period_number, $request )
+    {
+
+        static::where('period_number', $period_number)->update(['startdate' => $request]);
+
+        return true;
+
+    }
+
+
+    public static function Edit_PeriodEndDate( $period_number, $request )
+    {
+
+        static::where('period_number', $period_number)->update(['enddate' => $request]);
+
+        return true;
+
+    }
+
+
+
 
     public function competition()
     {

@@ -30,7 +30,7 @@
 
 
 
-    <form method="post" action="/hello.int/public/">
+    <form method="post" action="{{ route('home') }}">
 
         {{ csrf_field() }}
 

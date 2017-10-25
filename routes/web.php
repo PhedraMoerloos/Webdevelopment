@@ -15,14 +15,19 @@ use App\Competition;
 use App\Period;
 use App\Participant;
 
-Route::get('/', 'HomeController@index');
+Route::get('/', 'HomeController@index')
+->name('home');
 
-Route::post('/', 'ParticipantsController@store');
+
+Route::post('/', 'ParticipantsController@store')
+->name('opslaan');
 
 
-Route::get('/dashboard', 'AdminController@index');
+Route::get('/dashboard', 'AdminController@index')
+->name('dashboard');
 
-Route::patch('/dashboard', 'AdminController@edit');
+Route::patch('/dashboard', 'AdminController@edit')
+->name('patch-dashboard');
 
 
 
