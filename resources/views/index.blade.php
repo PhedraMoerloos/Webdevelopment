@@ -69,6 +69,11 @@
         </div>
 
         <div class="form-group">
+            <label for="email">Email: </label>
+            <input type="email" class="form-control" id="email" name= "email" placeholder="Email" required>
+        </div>
+
+        <div class="form-group">
             <button type="submit" class="btn btn-default">Send in</button>
         </div>
 

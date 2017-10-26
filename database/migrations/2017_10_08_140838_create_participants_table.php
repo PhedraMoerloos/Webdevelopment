@@ -20,11 +20,13 @@ class CreateParticipantsTable extends Migration
             $table->string('address');
             $table->string('city');
             $table->integer('zipcode');
+            $table->string('email');
             $table->string('ipaddress');
             $table->boolean('answered_correctly');
             $table->boolean('is_winner')->default(false);
             $table->integer('competition_id');
             $table->integer('period_id');
+            $table->boolean('is_allowed_to_play')->default(true);
             $table->timestamps();
         });
     }

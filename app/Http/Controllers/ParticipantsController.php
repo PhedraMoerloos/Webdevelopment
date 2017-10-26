@@ -15,8 +15,8 @@ class ParticipantsController extends Controller
     public function show()
     {
 
-        //$valid_participants = Participant::where('allowed_to_play', 1)->get();
-        $valid_participants = Participant::all();
+        $valid_participants = Participant::where('is_allowed_to_play', 1)->get();
+        //valid_participants = Participant::all();
 
         return view('dashboard/list-participants', compact('valid_participants'));
 
@@ -39,6 +39,7 @@ class ParticipantsController extends Controller
       $participant->address = request('address');
       $participant->city = request('city');
       $participant->zipcode = request('zipcode');
+      $participant->email = request('email');
 
       //zelf bepalen
       $participant->ipaddress = request()->ip();
@@ -74,7 +75,8 @@ class ParticipantsController extends Controller
           'address'     =>    'required|string|min:4',
           'city'        =>    'required|string|min:2',
           'zipcode'     =>    'required|integer',
-          'answer'      =>    'required|string|min:2'
+          'answer'      =>    'required|string|min:2',
+          'email'       =>    'required|email',
 
       ]);
 
