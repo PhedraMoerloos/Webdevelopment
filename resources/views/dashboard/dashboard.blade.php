@@ -8,6 +8,11 @@
     <h1>Admin Dashboard:</h1>
 
 
+    <div>
+        <button type="button" name="show-participants"><a href="{{ route('show-participants') }}">List of participants</a></button>
+    </div>
+
+
     <form method="post" action="{{ route('dashboard') }}">
 
         {{ method_field('PATCH') }}
@@ -15,7 +20,7 @@
         {{ csrf_field() }}
 
         <div class="form-group">
-            <label for="compManagerEmail">Change email address for competition mananager {{ $competition->competition_manager_name }}:</label>
+            <label for="compManagerEmail">Email address for competition mananager {{ $competition->competition_manager_name }}:</label>
             <input type="email" class="form-control" id="compManagerEmail" name= "compManagerEmail" value="{{ $competition->competition_manager_email }}" required>
         </div>
 

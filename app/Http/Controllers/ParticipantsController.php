@@ -11,6 +11,23 @@ use App\Period;
 class ParticipantsController extends Controller
 {
 
+
+    public function show()
+    {
+
+        //$valid_participants = Participant::where('allowed_to_play', 1)->get();
+        $valid_participants = Participant::all();
+
+        return view('dashboard/list-participants', compact('valid_participants'));
+
+    }
+
+
+
+
+
+
+
     public function store()
     {
 

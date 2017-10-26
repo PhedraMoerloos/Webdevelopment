@@ -15,19 +15,33 @@ use App\Competition;
 use App\Period;
 use App\Participant;
 
+
+
 Route::get('/', 'HomeController@index')
 ->name('home');
 
-
 Route::post('/', 'ParticipantsController@store')
-->name('opslaan');
+->name('store-participants');
+
+
 
 
 Route::get('/dashboard', 'AdminController@index')
 ->name('dashboard');
 
+//gaat nog vervangen worden door CompetitionController@edit --> compManagerEmail, en PeriodsController@edit -> startDate, endDate
 Route::patch('/dashboard', 'AdminController@edit')
 ->name('patch-dashboard');
+
+
+
+
+Route::get('/dashboard/list-of-participants', 'ParticipantsController@show')
+->name('show-participants');
+
+
+
+
 
 
 

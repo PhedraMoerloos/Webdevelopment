@@ -31,14 +31,14 @@ class AdminController extends Controller
         $this->validate(request(), [
 
             'compManagerEmail'   =>    'required|email',
-            'startDateP1'        =>    'required|date',
-            'endDateP1'          =>    'required|date',
-            'startDateP2'        =>    'required|date',
-            'endDateP2'          =>    'required|date',
-            'startDateP3'        =>    'required|date',
-            'endDateP3'          =>    'required|date',
-            'startDateP4'        =>    'required|date',
-            'endDateP4'          =>    'required|date',
+            'startDateP1'        =>    'required|date|before:endDateP1',
+            'endDateP1'          =>    'required|date|after:startDateP1',
+            'startDateP2'        =>    'required|date|before:endDateP2',
+            'endDateP2'          =>    'required|date|after:startDateP2',
+            'startDateP3'        =>    'required|date|before:endDateP3',
+            'endDateP3'          =>    'required|date|after:startDateP3',
+            'startDateP4'        =>    'required|date|before:endDateP4',
+            'endDateP4'          =>    'required|date|after:startDateP4',
 
         ]);
 
