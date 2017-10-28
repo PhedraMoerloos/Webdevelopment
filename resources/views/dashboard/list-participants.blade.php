@@ -17,12 +17,12 @@
             <li><b>Email:</b> {{ $valid_participant->email }}</li>
             <li><b>IP address:</b> {{ $valid_participant->ipaddress }}</li>
             <li><b>Answered correctly:</b> {{ ($valid_participant->answered_correctly) ? 'Yes' : 'No' }}</li>
-            <li><b>Is the winner of a period:</b> {{ ($valid_participant->answered_correctly) ? 'Yes' : 'No' }}</li>
+            <li><b>Is the winner of a period:</b> {{ ($valid_participant->is_winner) ? 'Yes' : 'No' }}</li>
             <li><b>Played in period:</b> {{ $valid_participant->period->period_number }}</li>
           </ul>
 
           <a href="{{ action('ParticipantsController@delete', [$valid_participant->id]) }}">Disqualify</a>
-          
+
         </div>
 
     @endforeach

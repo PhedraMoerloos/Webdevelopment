@@ -24,6 +24,10 @@ Route::post('/', 'ParticipantsController@store')
 ->name('store-participants');
 
 
+Route::get('/confirmation', 'HomeController@confirm')
+->name('confirm-participation');
+
+
 
 
 Route::get('/dashboard', 'AdminController@index')

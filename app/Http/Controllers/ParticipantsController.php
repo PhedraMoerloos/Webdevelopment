@@ -27,64 +27,77 @@ class ParticipantsController extends Controller
 
 
 
-    public function store()
+    public function store(Request $request)
     {
 
-      $participant = new Participant;
+        $participant = new Participant;
 
-      //ingevulde velden
-      $participant->firstname = request('firstname'); //name uit form
-      $participant->lastname = request('lastname');
-      $participant->address = request('address');
-      $participant->city = request('city');
-      $participant->zipcode = request('zipcode');
-      $participant->email = request('email');
+        //ingevulde velden
+        $participant->firstname = $request->get('firstname'); //name uit form
+        $participant->lastname = $request->get('lastname');
+        $participant->address = $request->get('address');
+        $participant->city = $request->get('city');
+        $participant->zipcode = $request->get('zipcode');
+        $participant->email = $request->get('email');
 
-      //zelf bepalen
-      $participant->ipaddress = request()->ip();
-      $participant->competition_id = 1;
+        //zelf bepalen
+        $request->merge(['ipaddress' => request()->ip()]);
+        $participant->ipaddress = $request->get('ipaddress');
 
-      //bepalen via methodes nog
-
-      //methodes
-      $period_id = Period::Determine_period();
-      $period_answer = Period::getPeriodAnswer($period_id);
+        $participant->competition_id = 1;
 
 
-      $answered_correctly;
-      if ( strcasecmp( request('answer'), $period_answer )  == 0 ) {
-        $answered_correctly = true;
-      }
+        //bepalen via methodes nog
 
-      else {
-        $answered_correctly = false;
-      }
+        //methodes
+        $period_id = Period::Determine_period();
+        $period_answer = Period::getPeriodAnswer($period_id);
 
 
-      $participant->period_id = $period_id;
-      $participant->answered_correctly = $answered_correctly;
+        $answered_correctly;
+        if ( strcasecmp( $request->get('answer'), $period_answer )  == 0 ) {
+          $answered_correctly = true;
+        }
+
+        else {
+          $answered_correctly = false;
+        }
+
+
+        $participant->period_id = $period_id;
+        $participant->answered_correctly = $answered_correctly;
 
 
 
 
-      $this->validate(request(), [
+        $this->validate(request(), [
 
-          'firstname'   =>    'required|string|min:2|max:40',
-          'lastname'    =>    'required|string|min:2|max:40',
-          'address'     =>    'required|string|min:4',
-          'city'        =>    'required|string|min:2',
-          'zipcode'     =>    'required|integer',
-          'answer'      =>    'required|string|min:2',
-          'email'       =>    'required|email',
+            'firstname'   =>    'required|string|min:2|max:40',
+            'lastname'    =>    'required|string|min:2|max:40',
+            'address'     =>    'required|string|min:4',
+            'city'        =>    'required|string|min:2',
+            'zipcode'     =>    'required|integer',
+            'answer'      =>    'required|string|min:2',
+            'email'       =>    'required|email',
+            'ipaddress'   =>    'unique:participants,ipaddress',
 
-      ]);
+          ], [
 
-      $participant->save();
+            'ipaddress.unique' => 'It seems you have already entered the competition this period.',
 
-      return redirect('/');
+          ]);
 
+
+        $participant->save();
+
+
+
+        return redirect(route('home'));
 
     }
+
+
+
 
 
 

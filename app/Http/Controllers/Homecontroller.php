@@ -37,7 +37,15 @@ class HomeController extends Controller
 
 
 
-  
+    public function confirm()
+    {
+        return view('confirmation');
+    }
+
+
+
+
+
 
 
 }
