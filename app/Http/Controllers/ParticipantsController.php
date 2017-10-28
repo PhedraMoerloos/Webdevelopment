@@ -69,8 +69,20 @@ class ParticipantsController extends Controller
 
 
 
-
         $this->validate(request(), [
+
+            'firstname'   =>    'required|string|min:2|max:40',
+            'lastname'    =>    'required|string|min:2|max:40',
+            'address'     =>    'required|string|min:4',
+            'city'        =>    'required|string|min:2',
+            'zipcode'     =>    'required|integer',
+            'answer'      =>    'required|string|min:2',
+            'email'       =>    'required|email',
+
+          ]);
+
+
+        /*$this->validate(request(), [
 
             'firstname'   =>    'required|string|min:2|max:40',
             'lastname'    =>    'required|string|min:2|max:40',
@@ -85,14 +97,15 @@ class ParticipantsController extends Controller
 
             'ipaddress.unique' => 'It seems you have already entered the competition this period.',
 
-          ]);
+          ]);*/
+
 
 
         $participant->save();
 
 
 
-        return redirect(route('home'));
+        return redirect(route('confirm-participation'));
 
     }
 
