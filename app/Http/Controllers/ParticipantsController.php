@@ -96,9 +96,7 @@ class ParticipantsController extends Controller
 
       Participant::where('id', $id)->update(['is_allowed_to_play' => 0]);
 
-      $valid_participants = Participant::where('is_allowed_to_play', 1)->get();
-
-      return view('dashboard/list-participants', compact('valid_participants'));
+      return redirect()->route('show-participants');
 
     }
 

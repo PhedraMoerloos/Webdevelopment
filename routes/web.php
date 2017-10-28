@@ -39,7 +39,8 @@ Route::patch('/dashboard', 'AdminController@edit')
 Route::get('/dashboard/list-of-participants', 'ParticipantsController@show')
 ->name('show-participants');
 
-Route::get('/dashboard/list-of-participants/disqualify-participant/{id}' , 'ParticipantsController@delete');
+Route::get('/dashboard/list-of-participants/disqualify-participant/{id}' , 'ParticipantsController@delete')
+->name('delete-participant');
 
 
 
