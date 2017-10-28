@@ -16,7 +16,6 @@ class ParticipantsController extends Controller
     {
 
         $valid_participants = Participant::where('is_allowed_to_play', 1)->get();
-        //valid_participants = Participant::all();
 
         return view('dashboard/list-participants', compact('valid_participants'));
 
@@ -84,6 +83,22 @@ class ParticipantsController extends Controller
 
       return redirect('/');
 
+
+    }
+
+
+
+
+
+
+    public function delete($id)
+    {
+
+      Participant::where('id', $id)->update(['is_allowed_to_play' => 0]);
+
+      $valid_participants = Participant::where('is_allowed_to_play', 1)->get();
+
+      return view('dashboard/list-participants', compact('valid_participants'));
 
     }
 
