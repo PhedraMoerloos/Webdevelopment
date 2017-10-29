@@ -103,7 +103,9 @@ class ParticipantsController extends Controller
 
         $participant->save();
 
+        //4 Hier doet hij de validatie op de inputs van het form op '/' en als alles in orde is, slaagt hij de nieuwe participant op
 
+        //5 hierna gaat hij naar de pagina die gegenereerd wordt door route confirm-participation
 
         return redirect(route('confirm-participation'));
 

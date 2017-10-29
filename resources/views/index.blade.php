@@ -29,7 +29,7 @@
     @endif
 
 
-
+    <!-- 2 Hier is de '/' pagina met het form met method post -->
     <form method="post" action="{{ route('home') }}">
 
         {{ csrf_field() }}

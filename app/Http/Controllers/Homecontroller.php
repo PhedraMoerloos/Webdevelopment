@@ -40,6 +40,7 @@ class HomeController extends Controller
     public function confirm()
     {
         return view('confirmation');
+        // 8 Dan voert hij deze methode uit en gaat dus de view confirmation.blade.php terug geven
     }
 
 

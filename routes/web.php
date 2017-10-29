@@ -16,16 +16,19 @@ use App\Period;
 use App\Participant;
 
 
-
+// 1 Dus ik heb op mijn '/' pagina een form die ik ga posten.
 Route::get('/', 'HomeController@index')
 ->name('home');
 
 Route::post('/', 'ParticipantsController@store')
 ->name('store-participants');
+// 3 Als die post, gaat hij naar de Participantscontroller en voert hij de methode 'store' uit
+
 
 
 Route::get('/confirmation', 'HomeController@confirm')
 ->name('confirm-participation');
+// 6 Voor de redirect gaat hij kijken naar deze route en hem volgen. Dus naar HomeController en de methode confirm uitvoeren.
 
 
 
