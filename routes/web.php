@@ -56,35 +56,6 @@ Route::get('/dashboard/list-of-participants/disqualify-participant/{id}' , 'Part
 
 
 
-Route::get('/decide-winner', function () {
-
-
-    //zo werkt al, mag dit natuurlijk wel maar 1 keer doen aan het einde van de periode..
-    // als periode 2 nu is, op einddatum om 12u 's nachts --> bepalen winnaar, wanneer die functie uitvoeren? cron?
-
-    $period_number = Period::Determine_period();
-
-    $id_winner = Participant::Determine_winner($period_number);
-
-    Participant::Create_winner($id_winner);
-
-
-
-    return $id_winner;
-
-});
-
-
-
-
-
-
-
-
-
-
-
-
 
 Route::get('/login', function () {
     return "This is where the admin logs in, if OK --> goes to dashboard";

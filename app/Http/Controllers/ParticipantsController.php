@@ -75,7 +75,7 @@ class ParticipantsController extends Controller
             'lastname'    =>    'required|string|min:2|max:40',
             'address'     =>    'required|string|min:4',
             'city'        =>    'required|string|min:2',
-            'zipcode'     =>    'required|integer',
+            'zipcode'     =>    'required|integer|min:1',
             'answer'      =>    'required|string|min:2',
             'email'       =>    'required|email',
 
@@ -88,7 +88,7 @@ class ParticipantsController extends Controller
             'lastname'    =>    'required|string|min:2|max:40',
             'address'     =>    'required|string|min:4',
             'city'        =>    'required|string|min:2',
-            'zipcode'     =>    'required|integer',
+            'zipcode'     =>    'required|integer|min:1',
             'answer'      =>    'required|string|min:2',
             'email'       =>    'required|email',
             'ipaddress'   =>    'unique:participants,ipaddress',
