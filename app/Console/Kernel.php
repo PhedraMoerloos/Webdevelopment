@@ -52,7 +52,7 @@ class Kernel extends ConsoleKernel
 
 
         $schedule->command('create:winner')
-                 ->cron('59 22 '.$day_of_month.' '.$month.' *');
+                 ->cron('58 22 '.$day_of_month.' '.$month.' *');
 
 
         $schedule->command('send:winnermail')
