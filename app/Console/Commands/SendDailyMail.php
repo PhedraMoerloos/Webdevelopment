@@ -37,6 +37,8 @@ class SendDailyMail extends Command
      */
     public function handle()
     {
-        //
+      
+        //die specifieke mail versturen (uit map mail)
+
     }
 }

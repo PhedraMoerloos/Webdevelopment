@@ -7,7 +7,7 @@ use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Contracts\Queue\ShouldQueue;
 
-class WinnerOfPeriod extends Mailable
+class ListParticipants extends Mailable
 {
     use Queueable, SerializesModels;
 
@@ -28,8 +28,9 @@ class WinnerOfPeriod extends Mailable
      */
     public function build()
     {
-        //return $this->view('view.name');
-        //subject, inhoud (view), naar wie(db),.. 
 
+      //return $this->view('view.name');
+      //subject, inhoud (view), naar wie(db),..
+      
     }
 }

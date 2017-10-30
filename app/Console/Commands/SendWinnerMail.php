@@ -39,7 +39,7 @@ class SendWinnerMail extends Command
     {
 
 
-        
+        //die specifieke mail versturen (uit map mail)
 
 
     }
