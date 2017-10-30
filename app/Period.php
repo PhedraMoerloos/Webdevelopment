@@ -15,17 +15,14 @@ class Period extends Model
                   //= Period::
         $period_now = static::where([
 
-            ['startdate', '<=', NOW()],
-            ['enddate', '>=', NOW()]
+            ['startdate', '<=', date('Y-m-d')],
+            ['enddate', '>=', date('Y-m-d')]
 
         ])->first()->id;
 
         return $period_now;
 
     }
-
-
-
 
     public static function getPeriodAnswer($period_id)
     {

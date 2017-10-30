@@ -5,6 +5,9 @@ namespace App\Console;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
 
+use App\Period;
+
+
 class Kernel extends ConsoleKernel
 {
     /**
@@ -13,7 +16,8 @@ class Kernel extends ConsoleKernel
      * @var array
      */
     protected $commands = [
-        //
+        Commands\CreateWinner::class,
+
     ];
 
     /**
@@ -24,8 +28,38 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        // $schedule->command('inspire')
-        //          ->hourly();
+
+        //checken welke periode we zijn, einddatum nemen voor 'day of month' en 'month',
+        // om 23:59u uitvoeren --> kiezen winnaar en sturen mails
+        $period_id = Period::Determine_period();
+        $enddate = Period::where('id', $period_id)->first()->enddate;
+
+        $day_of_month = date('j',strtotime($enddate));
+        $month = date('n',strtotime($enddate));
+
+        //zitten in timezone +1 --> uur -1 doen om hier om 23:59u een winnaar te kiezen
+        //
+        //        ┌───────────── min (0 - 59)
+        //        │  ┌────────────── hour (0 - 23)
+        //        │  │         ┌─────────────── day of month (1 - 31)
+        //        │  │         │               ┌──────────────── month (1 - 12)
+        //        │  │         │               │     ┌───────────────── day of week (0 - 6) (0 to 6 are Sunday to Saturday)
+        //        │  │         │               │     │
+        //        │  │         │               │     │
+        //->cron('59 22 '.$day_of_month.' '.$month.' *');
+
+
+        $schedule->command('create:winner')
+                 ->cron('59 22 '.$day_of_month.' '.$month.' *');
+
+
+        /*$schedule->command('send:winnermail')
+                 ->cron('59 22 '.$day_of_month.' '.$month.' *');
+
+
+        $schedule->command('send:dailymail')
+                 ->daily();*/           
+
     }
 
     /**

@@ -4,24 +4,21 @@ namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
 
-use App\Period;
-use App\Participant;
-
-class MyJob extends Command
+class SendDailyMail extends Command
 {
     /**
      * The name and signature of the console command.
      *
      * @var string
      */
-    protected $signature = 'create:winner';
+    protected $signature = 'send:dailymail';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'Create a winner for the period that has just ended.';
+    protected $description = 'Send a daily mail to the competition manager listing the participants.';
 
     /**
      * Create a new command instance.
@@ -40,16 +37,6 @@ class MyJob extends Command
      */
     public function handle()
     {
-
-      echo "Starting job\n";
-
-      $period_number = Period::Determine_period();
-
-      $id_winner = Participant::Determine_winner($period_number);
-
-      Participant::Create_winner($id_winner);
-
-      echo "Job done\n";
-
+        //
     }
 }
