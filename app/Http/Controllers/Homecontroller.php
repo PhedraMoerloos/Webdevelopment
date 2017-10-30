@@ -11,7 +11,7 @@ use App\Participant;
 
 class HomeController extends Controller
 {
-
+    
 
     public function index()
     {
@@ -40,13 +40,8 @@ class HomeController extends Controller
     public function confirm()
     {
         return view('confirmation');
-        
+
     }
-
-
-
-
-
 
 
 }

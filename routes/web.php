@@ -11,22 +11,26 @@
 |
 */
 
-use App\Competition;
-use App\Period;
-use App\Participant;
+
+
+
+Auth::routes();
 
 
 
 Route::get('/', 'HomeController@index')
 ->name('home');
 
+Route::get('/home', 'HomeController@index')
+->name('home');
+
 Route::post('/', 'ParticipantsController@store')
 ->name('store-participants');
 
 
+
 Route::get('/confirmation', 'HomeController@confirm')
 ->name('confirm-participation');
-
 
 
 
@@ -41,26 +45,8 @@ Route::patch('/dashboard', 'AdminController@edit')
 
 
 
-Route::get('/dashboard/list-of-participants', 'ParticipantsController@show')
+Route::get('/dashboard/list-of-participants', 'ParticipantsController@index')
 ->name('show-participants');
 
 Route::get('/dashboard/list-of-participants/disqualify-participant/{id}' , 'ParticipantsController@delete')
 ->name('delete-participant');
-
-
-
-
-
-
-
-
-
-Route::get('/login', function () {
-    return "This is where the admin logs in, if OK --> goes to dashboard";
-    //methode wss gwn
-});
-
-Route::get('/logout', function () {
-    return "Thank you for logging out, go to competition page / log in.";
-    //methode wss gwn
-});

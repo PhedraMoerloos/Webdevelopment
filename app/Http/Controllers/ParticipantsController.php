@@ -12,7 +12,15 @@ class ParticipantsController extends Controller
 {
 
 
-    public function show()
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
+
+
+
+    public function index()
     {
 
         $valid_participants = Participant::where('is_allowed_to_play', 1)->get();
@@ -70,18 +78,6 @@ class ParticipantsController extends Controller
             $participant->answered_correctly = $answered_correctly;
 
 
-
-            /*$this->validate(request(), [
-
-                'firstname'   =>    'required|string|min:2|max:40',
-                'lastname'    =>    'required|string|min:2|max:40',
-                'address'     =>    'required|string|min:4',
-                'city'        =>    'required|string|min:2',
-                'zipcode'     =>    'required|integer|min:1',
-                'answer'      =>    'required|string|min:2',
-                'email'       =>    'required|email',
-
-              ]);*/
 
 
             $this->validate(request(), [
