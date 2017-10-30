@@ -17,6 +17,8 @@ class Kernel extends ConsoleKernel
      */
     protected $commands = [
         Commands\CreateWinner::class,
+        Commands\SendDailyMail::class,
+        Commands\SendWinnerMail::class,
 
     ];
 
@@ -53,12 +55,12 @@ class Kernel extends ConsoleKernel
                  ->cron('59 22 '.$day_of_month.' '.$month.' *');
 
 
-        /*$schedule->command('send:winnermail')
-                   ->cron('59 22 '.$day_of_month.' '.$month.' *');
+        $schedule->command('send:winnermail')
+                 ->cron('59 22 '.$day_of_month.' '.$month.' *');
 
 
         $schedule->command('send:dailymail')
-                 ->daily();*/
+                 ->daily();
 
     }
 

@@ -2,6 +2,8 @@
 
 namespace App\Mail;
 
+use App\Participant;
+
 use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
@@ -16,9 +18,13 @@ class ListParticipants extends Mailable
      *
      * @return void
      */
+    public $valid_participants;
     public function __construct()
     {
-        //
+
+        $valid_participants = Participant::where('is_allowed_to_play', 1)->get();
+        $this->valid_participants = $valid_participants;
+
     }
 
     /**
@@ -29,8 +35,10 @@ class ListParticipants extends Mailable
     public function build()
     {
 
-      //return $this->view('view.name');
-      //subject, inhoud (view), naar wie(db),..
-      
+        //subject, inhoud (view), naar wie(db),..
+        return $this->view('emails.list-participants')
+                    ->text('emails.list-participants');
+
+
     }
 }

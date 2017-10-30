@@ -4,6 +4,13 @@ namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
 
+use App\Competition;
+use App\Participant;
+
+use Illuminate\Support\Facades\Mail;
+use App\Mail\ListParticipants;
+
+
 class SendDailyMail extends Command
 {
     /**
@@ -37,8 +44,10 @@ class SendDailyMail extends Command
      */
     public function handle()
     {
-      
-        //die specifieke mail versturen (uit map mail)
+
+        $recipient = Competition::first()->competition_manager_email;
+
+        Mail::to($recipient)->send(new ListParticipants());
 
     }
 }

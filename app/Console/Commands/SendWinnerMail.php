@@ -4,6 +4,12 @@ namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
 
+use App\Competition;
+
+use Illuminate\Support\Facades\Mail;
+use App\Mail\WinnerOfPeriod;
+
+
 class SendWinnerMail extends Command
 {
     /**
@@ -38,9 +44,10 @@ class SendWinnerMail extends Command
     public function handle()
     {
 
+        $recipient = Competition::first()->competition_manager_email;
 
-        //die specifieke mail versturen (uit map mail)
-
+        Mail::to($recipient)->send(new WinnerOfPeriod());
 
     }
+
 }
