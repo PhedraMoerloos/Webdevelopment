@@ -21,7 +21,7 @@
             <li><b>Played in period:</b> {{ $valid_participant->period->period_number }}</li>
           </ul>
 
-          <a href="{{ action('ParticipantsController@delete', [$valid_participant->id]) }}">Disqualify</a>
+          <a href="{{ action('ParticipantsController@delete', [$valid_participant->id]) }}">Disqualify {{ $valid_participant->firstname }} {{ $valid_participant->lastname }}</a>
 
         </div>
 
