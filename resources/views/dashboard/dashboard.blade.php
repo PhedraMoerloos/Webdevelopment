@@ -1,4 +1,4 @@
-@extends('master')
+@extends('layouts.app')
 
 
 
@@ -6,11 +6,6 @@
 
 
     <h1>Admin Dashboard:</h1>
-
-
-    <div>
-        <button type="button" name="show-participants"><a href="{{ route('show-participants') }}">List of participants</a></button>
-    </div>
 
 
     <form method="post" action="{{ route('dashboard') }}">
