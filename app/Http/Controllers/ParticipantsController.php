@@ -12,14 +12,6 @@ class ParticipantsController extends Controller
 {
 
 
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
-
-
-
-
     public function index()
     {
 
@@ -28,9 +20,6 @@ class ParticipantsController extends Controller
         return view('dashboard/list-participants', compact('valid_participants'));
 
     }
-
-
-
 
 
 
@@ -89,11 +78,11 @@ class ParticipantsController extends Controller
                 'zipcode'     =>    'required|integer|min:1',
                 'answer'      =>    'required|string|min:2',
                 'email'       =>    'required|email',
-                'ipaddress'   =>    'unique:participants,ipaddress',
+                /*'ipaddress'   =>    'unique:participants,ipaddress',
 
               ], [
 
-                'ipaddress.unique' => 'It seems you have already entered the competition this period.',
+                'ipaddress.unique' => 'It seems you have already entered the competition this period.',*/
 
               ]);
 

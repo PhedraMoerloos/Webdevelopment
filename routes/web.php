@@ -17,7 +17,6 @@
 Auth::routes();
 
 
-
 Route::get('/', 'HomeController@index')
 ->name('home');
 
@@ -36,17 +35,22 @@ Route::get('/confirmation', 'HomeController@confirm')
 
 
 Route::get('/dashboard', 'AdminController@index')
+->middleware('auth')
 ->name('dashboard');
 
 //gaat nog vervangen worden door CompetitionController@edit --> compManagerEmail, en PeriodsController@edit -> startDate, endDate
 Route::patch('/dashboard', 'AdminController@edit')
+->middleware('auth')
 ->name('patch-dashboard');
 
 
 
 
+
 Route::get('/dashboard/list-of-participants', 'ParticipantsController@index')
+->middleware('auth')
 ->name('show-participants');
 
 Route::get('/dashboard/list-of-participants/disqualify-participant/{id}' , 'ParticipantsController@delete')
+->middleware('auth')
 ->name('delete-participant');
