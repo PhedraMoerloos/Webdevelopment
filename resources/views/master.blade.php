@@ -18,16 +18,11 @@
     </head>
     <body>
 
-        <div class="flex-center position-ref full-height">
 
+        <div class="content">
 
-
-
-            <div class="content">
-                @yield('content')
-                <footer>@include('partials.footer')</footer>
-            </div>
-
+            @yield('content')
+            <footer class="footer">@include('partials.footer')</footer>
 
         </div>
 
