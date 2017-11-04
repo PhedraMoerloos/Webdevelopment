@@ -30,6 +30,10 @@ h3 {
   font-weight: bold;
 }
 
+.bold {
+  font-weight: bold;
+}
+
 
 .container-ad {
     margin-top: 3em;
@@ -95,13 +99,18 @@ h3 {
 .your-info {
     margin-top: 1em;
     color: #a83a8a;
+    text-align: center;
 }
 
 .submit {
     background-color: #a83a8a;
     color: white;
     width: 10em;
-    margin: 0 auto;
+}
+
+.submit-center {
+    margin-top: 2em;
+    text-align: center;
 }
 
 
@@ -119,7 +128,7 @@ footer {
 
 
 footer p {
-  margin-bottom: 0.25em;
+  margin-bottom: 0.75em;
 }
 
 

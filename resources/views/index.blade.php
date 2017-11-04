@@ -57,7 +57,7 @@
             <h1 class="title title-form">Want to give it a go?</h1>
 
             <div class="form-group">
-                <label for="answer">{{ $period_object->question }}</label>
+                <label for="answer" class="bold">{{ $period_object->question }}</label>
                 <input type="text" class="form-control" id="answer" name= "answer" placeholder="Your answer" required>
             </div>
 
@@ -97,7 +97,7 @@
                     <input type="email" class="form-control" id="email" name= "email" placeholder="Email" required>
                 </div>
 
-                <div class="form-group">
+                <div class="form-group submit-center">
                     <button type="submit" class="btn btn-default submit">Send in</button>
                 </div>
 
