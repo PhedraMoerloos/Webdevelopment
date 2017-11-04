@@ -34,7 +34,7 @@ h3 {
 .container-ad {
     margin-top: 3em;
     margin-bottom: 3em;
-    background-color: #ffbe4e;
+    background-color: #fdbd59;
 }
 
 
@@ -67,7 +67,7 @@ h3 {
 .winners-title {
     font-weight: 600;
     margin-top: 1.5em;
-    margin-bottom: 0.5em;
+    margin-bottom: 0.25em;
 }
 
 
@@ -81,17 +81,27 @@ h3 {
 
 .form {
     background-color: #e7e6da;
-    padding: 1.5em;
+    padding: 0.85em 1.5em;
+    padding-bottom: 0.5em;
 }
 
 .center {
-  margin: 0 auto;
+    width: 40em;
+    padding: 1em;
+    margin: 0 auto;
 }
 
+
+.your-info {
+    margin-top: 1em;
+    color: #a83a8a;
+}
 
 .submit {
     background-color: #a83a8a;
     color: white;
+    width: 10em;
+    margin: 0 auto;
 }
 
 
@@ -118,6 +128,10 @@ footer p {
 
      .img-size {
         width: 300px;
+     }
+
+    .center {
+        width: 30em;
     }
 
 }

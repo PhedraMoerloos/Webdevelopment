@@ -48,11 +48,7 @@
     </div>
 
 
-
-
-
-<div class="row">
-    <div class="col-6 center">
+    <div class="center">
 
         <form method="post" action="{{ route('store-participants') }}">
 
@@ -66,7 +62,7 @@
             </div>
 
 
-            <h3>Your info:</h3>
+            <h3 class="your-info">Your info:</h3>
 
 
             <div class="form">
@@ -113,9 +109,6 @@
         </form>
 
     </div><!--end container-->
-
-
-  </div>
 
 
 
