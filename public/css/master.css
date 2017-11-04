@@ -1,7 +1,7 @@
 
 html, body {
     background-color: #fff;
-    color: #35393a;
+    color: #323944;
     font-family: 'Source Sans Pro', sans-serif;
     font-size: 16px;
     margin: 0;
@@ -12,6 +12,7 @@ html, body {
     width: 17em;
     display: block;
     margin: auto;
+    padding: 1em;
 }
 
 
@@ -20,13 +21,105 @@ h1, h2, h3 {
 }
 
 h1 {
-  font-size: 4em;
+  font-size: 5em;
   font-weight: bold;
+}
+
+h3 {
+  font-size: 2.5em;
+  font-weight: bold;
+}
+
+
+.container-ad {
+    margin-top: 3em;
+    margin-bottom: 3em;
+    background-color: #ffbe4e;
+}
+
+
+.title-page, .title-form {
+    text-align: center;
+}
+
+
+.title-page {
+    background: url('/img/featured-pet-header-background.jpg') repeat left top;
+    padding-top: 0.35em;
+    padding-bottom: 0.35em;
+}
+
+
+.info {
+    margin-top: 2em;
+    padding-left: 3em;
+    text-align: center;
+}
+
+
+.winners {
+  text-align: left;
+  width: 275px;
+  margin: 0 auto;
+}
+
+
+.winners-title {
+    font-weight: 600;
+    margin-top: 1.5em;
+    margin-bottom: 0.5em;
+}
+
+
+.title-form{
+    margin-bottom: 0.5em;
+    color: #a83a8a;
+    font-size: 4.5em;
+    padding-top: 0.25em;
+}
+
+
+.form {
+    background-color: #e7e6da;
+    padding: 1.5em;
+}
+
+.center {
+  margin: 0 auto;
+}
+
+
+.submit {
+    background-color: #a83a8a;
+    color: white;
+}
+
+
+.submit:hover {
+    background-color: #2199e8;
 }
 
 
 footer {
   font-size: 0.85em;
+  text-align: center;
+  margin-top: 2em;
+  color: grey;
+}
+
+
+footer p {
+  margin-bottom: 0.25em;
+}
+
+
+
+@media screen and (max-width: 768px) {
+
+     .img-size {
+        width: 300px;
+    }
+
 }
 
 

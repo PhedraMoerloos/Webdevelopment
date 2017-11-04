@@ -11,7 +11,7 @@
 
         <!-- Fonts -->
         <!--<link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">-->
-        <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Amatic+SC:400,700" rel="stylesheet">
         <link rel="stylesheet" href="/css/master.css">
 
