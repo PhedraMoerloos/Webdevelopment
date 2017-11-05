@@ -79,7 +79,6 @@ class ParticipantsController extends Controller
                 'zipcode'     =>    'required|integer|min:1',
                 'answer'      =>    'required|string|min:2',
                 'email'       =>    'required|email',
-                /*'ipaddress'   =>    'required|unique:participants,ipaddress,NULL,period_id'*/
                 'ipaddress'   =>    Rule::unique('participants')->where(function ($query) {
                                     return $query->where('period_id', Period::Determine_period());})
 

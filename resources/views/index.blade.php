@@ -58,7 +58,7 @@
 
             <div class="form-group">
                 <label for="answer" class="bold">{{ $period_object->question }}</label>
-                <input type="text" class="form-control" id="answer" name= "answer" placeholder="Your answer" required>
+                <input type="text" class="form-control" id="answer" name= "answer" placeholder="Your answer" value="{{ old('answer') }}" required>
             </div>
 
 
@@ -69,32 +69,32 @@
 
                 <div class="form-group">
                     <label for="firstname">Firstname: </label>
-                    <input type="text" class="form-control" id="firstname" name= "firstname" placeholder="Firstname" required>
+                    <input type="text" class="form-control" id="firstname" name= "firstname" placeholder="Firstname" value="{{ old('firstname') }}" required>
                 </div>
 
                 <div class="form-group">
                     <label for="lastname">Lastname: </label>
-                    <input type="text" class="form-control" id="lastname" name= "lastname" placeholder="Lastname" required>
+                    <input type="text" class="form-control" id="lastname" name= "lastname" placeholder="Lastname" value="{{ old('lastname') }}" required>
                 </div>
 
                 <div class="form-group">
                     <label for="address">Address: </label>
-                    <input type="text" class="form-control" id="address" name= "address" placeholder="Street + nr" required>
+                    <input type="text" class="form-control" id="address" name= "address" placeholder="Street + nr" value="{{ old('address') }}" required>
                 </div>
 
                 <div class="form-group">
                     <label for="city">City: </label>
-                    <input type="text" class="form-control" id="city" name= "city" placeholder="City" required>
+                    <input type="text" class="form-control" id="city" name= "city" placeholder="City" value="{{ old('city') }}" required>
                 </div>
 
                 <div class="form-group">
                     <label for="zipcode">Zipcode: </label>
-                    <input type="number" class="form-control" id="zipcode" name= "zipcode" placeholder="Zipcode" required>
+                    <input type="number" class="form-control" id="zipcode" name= "zipcode" placeholder="Zipcode" value="{{ old('zipcode') }}" required>
                 </div>
 
                 <div class="form-group">
                     <label for="email">Email: </label>
-                    <input type="email" class="form-control" id="email" name= "email" placeholder="Email" required>
+                    <input type="email" class="form-control" id="email" name= "email" placeholder="Email" value="{{ old('email') }}" required>
                 </div>
 
                 <div class="form-group submit-center">
