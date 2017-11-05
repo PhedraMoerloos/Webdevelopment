@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
 
 use App\Participant;
 use App\Period;
@@ -78,11 +79,13 @@ class ParticipantsController extends Controller
                 'zipcode'     =>    'required|integer|min:1',
                 'answer'      =>    'required|string|min:2',
                 'email'       =>    'required|email',
-                /*'ipaddress'   =>    'unique:participants,ipaddress',
+                /*'ipaddress'   =>    'required|unique:participants,ipaddress,NULL,period_id'*/
+                'ipaddress'   =>    Rule::unique('participants')->where(function ($query) {
+                                    return $query->where('period_id', Period::Determine_period());})
 
               ], [
 
-                'ipaddress.unique' => 'It seems you have already entered the competition this period.',*/
+                'ipaddress.unique' => 'It seems you have already entered the competition this period.',
 
               ]);
 

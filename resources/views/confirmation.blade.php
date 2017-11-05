@@ -5,7 +5,7 @@
 @section('content')
 
     <div>
-      <img class="logo" src="/img/petco-foundation-logo.png" alt="logo petco foundation">
+      <a href="/"><img class="logo" src="/img/petco-foundation-logo.png" alt="logo petco foundation"></a>
     </div>
 
     <div class="container container-confirmation">
