@@ -4,6 +4,7 @@
 
 @section('content')
 
+
     <div>
       <a href="/"><img class="logo" src="/img/petco-foundation-logo.png" alt="logo petco foundation"></a>
     </div>
@@ -108,9 +109,7 @@
 
         </form>
 
-    </div><!--end container-->
-
-
+    </div><!--end container center-->
 
 
 @endsection

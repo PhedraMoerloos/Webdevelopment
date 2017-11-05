@@ -9,6 +9,9 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>Competition Yuppie</title>
+    
+
+    <link rel="shortcut icon" type="image/png" href="/img/favicon.png"/>
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">

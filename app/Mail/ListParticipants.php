@@ -35,7 +35,6 @@ class ListParticipants extends Mailable
     public function build()
     {
 
-        //subject, inhoud (view), naar wie(db),..
         return $this->view('emails.list-participants')
                     ->text('emails.list-participants');
 

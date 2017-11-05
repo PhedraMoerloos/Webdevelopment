@@ -8,7 +8,7 @@ class Participant extends Model
 {
 
 
-    //deze mogen niet geMass assigned worden
+    //deze mogen niet geMass assigned worden, gebeurt hier niet maar voor de zekerheid.
     protected $quarded = ['period_id', 'answered_correctly'];
 
 
@@ -34,9 +34,7 @@ class Participant extends Model
 
     public static function Create_winner($id_winner)
     {
-        //op deze manier geeft MassAssignment error
-        /*$winner = Participant::findorFail( $id );
-        $winner->update(['is_winner'=> 1]);*/
+
         static::where('id', $id_winner)->update(['is_winner' => 1]);
 
         return true;

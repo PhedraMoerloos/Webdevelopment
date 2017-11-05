@@ -1,3 +1,4 @@
+/****** ALGEMENE ZAKEN ******/
 
 html {
     position: relative;
@@ -18,6 +19,33 @@ body {
 }
 
 
+h1, h2, h3 {
+  font-family: 'Amatic SC', cursive;
+}
+
+
+h1 {
+  font-size: 5em;
+  font-weight: bold;
+}
+
+
+h2 {
+  font-size: 3.75em;
+}
+
+
+h3 {
+  font-size: 2.5em;
+  font-weight: bold;
+}
+
+
+.bold {
+  font-weight: bold;
+}
+
+
 .logo {
     width: 17em;
     display: block;
@@ -26,28 +54,10 @@ body {
 }
 
 
-h1, h2, h3 {
-  font-family: 'Amatic SC', cursive;
-}
+/**** HOME PAGE ****/
 
-h1 {
-  font-size: 5em;
-  font-weight: bold;
-}
 
-h2 {
-  font-size: 3.75em;
-}
-
-h3 {
-  font-size: 2.5em;
-  font-weight: bold;
-}
-
-.bold {
-  font-weight: bold;
-}
-
+/* HEADER */
 
 .container-ad {
     margin-top: 3em;
@@ -67,6 +77,9 @@ h3 {
     padding-bottom: 0.35em;
 }
 
+
+
+/* AD */
 
 .info {
     margin-top: 2em;
@@ -88,6 +101,9 @@ h3 {
     margin-bottom: 0.25em;
 }
 
+
+
+/* FORM */
 
 .title-form{
     margin-bottom: 0.5em;
@@ -132,6 +148,7 @@ h3 {
     background-color: #2199e8;
 }
 
+/* FOOTER */
 
 footer {
   font-size: 0.85em;
@@ -152,6 +169,8 @@ footer {
 }
 
 
+
+/* MEDIA QUERIES */
 
 @media screen and (max-width: 768px) {
 
@@ -187,57 +206,3 @@ footer {
 .container-confirmation p {
     margin-bottom: 0.20em;
 }
-
-/*
-html, body {
-    background-color: #fff;
-    color: #636b6f;
-    font-family: 'Raleway', sans-serif;
-    font-weight: 100;
-    margin: 0;
-}
-
-
-
-.flex-center {
-    align-items: center;
-    display: flex;
-    justify-content: center;
-}
-
-.position-ref {
-    position: relative;
-}
-
-.full-height {
-    height: 100%;
-}
-
-
-.top-right {
-    position: absolute;
-    right: 10px;
-    top: 18px;
-}
-
-.content {
-    text-align: center;
-}
-
-.title {
-    font-size: 84px;
-}
-
-.links > a {
-    color: #636b6f;
-    padding: 0 25px;
-    font-size: 12px;
-    font-weight: 600;
-    letter-spacing: .1rem;
-    text-decoration: none;
-    text-transform: uppercase;
-}
-
-.m-b-md {
-    margin-bottom: 30px;
-}*/

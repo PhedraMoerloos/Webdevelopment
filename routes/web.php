@@ -38,7 +38,7 @@ Route::get('/dashboard', 'AdminController@index')
 ->middleware('auth')
 ->name('dashboard');
 
-//gaat nog vervangen worden door CompetitionController@edit --> compManagerEmail, en PeriodsController@edit -> startDate, endDate
+
 Route::patch('/dashboard', 'AdminController@edit')
 ->middleware('auth')
 ->name('patch-dashboard');

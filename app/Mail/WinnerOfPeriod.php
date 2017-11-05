@@ -41,7 +41,6 @@ class WinnerOfPeriod extends Mailable
     public function build()
     {
 
-        //subject, inhoud (view), naar wie(db),..
         return $this->view('emails.winners-period')
                     ->text('emails.winners-period')
                     ->with([
