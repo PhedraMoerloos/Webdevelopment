@@ -20,7 +20,8 @@ class Participant extends Model
       $id_winner = static::where([
 
           ['period_id', $period],
-          ['answered_correctly', '1']
+          ['answered_correctly', '1'],
+          ['is_allowed_to_play', '1']
 
       ])->inRandomOrder()->first()->id;
 
