@@ -26,9 +26,10 @@ class WinnerOfPeriod extends Mailable
     {
 
         $period_now = Period::Determine_period();
-        $participants_period_now = Participant::where('period_id', $period_now)->get();
-        $winner = Participant::where('is_winner', 1)->get();
-        $this->winner = $winner->first();
+        $this->winner = Participant::where([
+          ['is_winner', '1'],
+          ['period_id', $period_now]
+        ])->first();
 
     }
 

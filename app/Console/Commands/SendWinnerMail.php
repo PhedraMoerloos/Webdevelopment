@@ -44,9 +44,18 @@ class SendWinnerMail extends Command
     public function handle()
     {
 
+        /*Competition manager mail sturen*/
         $recipient = Competition::first()->competition_manager_email;
 
+        /*Winner mail sturen*/
+        $period_now = Period::Determine_period();
+        $winner = Participant::where([
+          ['is_winner', '1'],
+          ['period_id', $period_now]
+        ])->first()->email;
+
         Mail::to($recipient)->send(new WinnerOfPeriod());
+        Mail::to($winner)->send(new WinnerOfPeriod());
 
     }
 
