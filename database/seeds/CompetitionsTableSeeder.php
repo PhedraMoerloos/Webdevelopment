@@ -14,7 +14,7 @@ class CompetitionsTableSeeder extends Seeder
 
       DB::table('competitions')->insert([
         ['title' => 'Competition Yuppie!',
-        'photo_url' => 'img/goldfish.jpg',
+        'photo_url' => '/img/yuppie.png',
         'description' => 'Answer the question correctly and you might win a free goldfish and aquarium!',
         'competition_manager_name' => 'Phedra Moerloos',
         'competition_manager_email' => 'moerloos.phedra@hotmail.com',
